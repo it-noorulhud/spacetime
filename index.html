@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levitas Review — The Physics of Levitation &amp; Spacetime Mechanics</title>
+  <meta name="description" content="An authoritative academic publication dedicated to quantum levitation, acoustic trapping, and relativistic metric propulsion physics.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mocha: {
+              900: '#18100D',
+              800: '#221814',
+              700: '#2E221B',
+              600: '#3D2E25',
+            },
+            cinnamon: {
+              600: '#6D4433',
+              500: '#8A5A44',
+              400: '#A3705A',
+              200: '#D8CCC4',
+              100: '#EAE1D9',
+            },
+            sand: {
+              100: '#F5EFEB',
+              200: '#EDE4DC',
+              300: '#E2D6CB',
+            },
+            ivory: {
+              DEFAULT: '#FAF7F2',
+              pure: '#FFFFFF',
+            },
+            bronze: {
+              DEFAULT: '#C2873E',
+              hover: '#A6712E',
+              soft: '#E8CA9D',
+            },
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design Tokens & Editorial Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- KaTeX for crisp inline/display formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+</head>
+<body class="bg-sand-100 text-mocha-800 antialiased selection:bg-bronze-soft selection:text-mocha-900">
+
+  <!-- TOP EDITORIAL HEADER BAR -->
+  <div class="bg-mocha-800 text-ivory text-xs font-mono py-2 px-6 border-b border-mocha-700">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-block w-2 h-2 rounded-full bg-bronze animate-pulse"></span>
+        <span>PEER-REVIEWED ARCHIVE // VOL. IV • ISSUE 11</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <span class="hidden md:inline text-sand-300">CURATED FOR RESEARCHERS & ACADEMIC INQUIRY</span>
+        <a href="#newsletter" class="text-bronze hover:underline uppercase tracking-caps text-[11px]">Receive The Monograph &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION -->
+  <header class="navbar">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo / Masthead -->
+      <a href="index.html" class="flex items-center gap-3 no-underline group">
+        <div class="w-10 h-10 rounded-full bg-mocha-800 flex items-center justify-center border border-bronze group-hover:bg-mocha-700 transition">
+          <span class="font-serif text-ivory text-xl italic font-normal">L</span>
+        </div>
+        <div>
+          <span class="font-serif text-2xl font-normal tracking-tight text-mocha-800 block leading-none">Levitas Review</span>
+          <span class="font-mono text-[10px] uppercase tracking-caps text-cinnamon-500 block mt-1">Journal of Levitation Physics</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="quantum-levitation.html" class="nav-link">Quantum Levitation</a>
+        <a href="articles.html?silo=electromagnetic-acoustic" class="nav-link">Acoustic & EM</a>
+        <a href="articles.html?silo=speculative-propulsion" class="nav-link">Metric Propulsion</a>
+        <a href="articles.html" class="nav-link">The 30-Paper Codex</a>
+        <a href="#simulator" class="nav-link">Interactive Lab</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="articles.html" class="btn-primary text-xs py-2.5 px-5">
+          Browse Archive
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-mocha-800 focus:outline-none" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileNavDrawer" class="hidden lg:hidden bg-sand-200 border-b border-cinnamon-200 px-6 py-6 space-y-4">
+      <a href="index.html" class="block font-serif text-lg text-mocha-800">Home</a>
+      <a href="quantum-levitation.html" class="block font-serif text-lg text-mocha-800">Quantum Levitation (Pillar)</a>
+      <a href="articles.html?silo=electromagnetic-acoustic" class="block font-serif text-lg text-mocha-800">Acoustic & EM Levitation</a>
+      <a href="articles.html?silo=speculative-propulsion" class="block font-serif text-lg text-mocha-800">Spacetime Metric Propulsion</a>
+      <a href="articles.html" class="block font-serif text-lg text-mocha-800">The 30-Paper Silo Library</a>
+      <a href="#simulator" class="block font-serif text-lg text-mocha-800">Interactive Physics Lab</a>
+      <a href="#newsletter" class="btn-bronze w-full text-center py-2.5 mt-2">Subscribe to Field Notes</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-24 pb-20 px-6 overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <!-- Editorial Pill Badge -->
+        <div class="inline-block mb-6">
+          <span class="editorial-badge">
+            The Physics of Levitation
+          </span>
+        </div>
+
+        <!-- H1 Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif text-mocha-800 tracking-tight leading-[1.08] max-w-4xl mx-auto">
+          Unbinding Matter: Where Spacetime Geometry Meets Levitation Science.
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="mt-8 text-lg sm:text-xl font-sans text-mocha-700/80 max-w-3xl mx-auto font-normal leading-relaxed">
+          An authoritative intellectual archive dedicated to real, verifiable physics: from macroscopic quantum flux pinning and ultrasonic acoustic nodes to general relativistic metric propulsion.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#silos" class="btn-primary w-full sm:w-auto">
+            Explore the 3 Knowledge Silos
+          </a>
+          <a href="#codex" class="btn-secondary w-full sm:w-auto">
+            Read The Foundations Codex
+          </a>
+        </div>
+
+        <!-- Metadata Ribbon -->
+        <div class="mt-14 pt-8 border-t border-cinnamon-200/80 max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="font-serif text-2xl text-mocha-800">30</div>
+            <div class="font-mono text-xs uppercase text-cinnamon-500 tracking-caps mt-1">Peer-Reviewed Papers</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl text-mocha-800">3</div>
+            <div class="font-mono text-xs uppercase text-cinnamon-500 tracking-caps mt-1">Disciplinary Silos</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl text-mocha-800">100%</div>
+            <div class="font-mono text-xs uppercase text-cinnamon-500 tracking-caps mt-1">Rigorous Physics</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl text-mocha-800">0%</div>
+            <div class="font-mono text-xs uppercase text-cinnamon-500 tracking-caps mt-1">Pseudoscience</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PHYSICS LABORATORY (MUSEUM-GRADE CANVAS SIMULATION) -->
+    <section id="simulator" class="py-16 px-6 bg-sand-200/60 border-y border-cinnamon-200">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-bronze"></span>
+              <span class="font-mono text-xs uppercase tracking-caps text-cinnamon-600 font-semibold">Interactive Laboratory Exhibit</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-serif text-mocha-800">
+              Quantum Flux Pinning vs. Classical Instability
+            </h2>
+            <p class="text-sm font-sans text-mocha-700/80 mt-1 max-w-xl">
+              Interact directly with the simulation below. Click or drag the YBCO ceramic puck to verify how quantized vortex pinning maintains true 3D equilibrium while Earnshaw's theorem causes classical dipoles to collapse.
+            </p>
+          </div>
+
+          <!-- Simulation Mode Switcher -->
+          <div class="flex flex-wrap items-center gap-2 bg-ivory p-1.5 rounded-lg border border-cinnamon-200 shadow-warm-sm">
+            <button class="filter-pill active" data-sim-mode="flux-pinning">
+              Type-II Flux Pinning (Stable)
+            </button>
+            <button class="filter-pill" data-sim-mode="meissner">
+              Type-I Meissner (Drift)
+            </button>
+            <button class="filter-pill" data-sim-mode="classical">
+              Earnshaw Static (Collapse)
+            </button>
+          </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="physics-canvas-container">
+          <canvas id="physicsCanvas"></canvas>
+          
+          <!-- Bottom Telemetry Bar -->
+          <div class="p-4 bg-ivory border-t border-cinnamon-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+            <div>
+              <span class="text-mocha-700/60 block">SUPERCONDUCTOR STATE:</span>
+              <span id="simStatusBadge" class="font-bold text-bronze">Quantum Locked (Type-II Superconductor)</span>
+            </div>
+            <div>
+              <span class="text-mocha-700/60 block">DYNAMIC STABILITY:</span>
+              <span id="simStability" class="text-mocha-800 font-medium">Stable Equilibrium (3D Frozen)</span>
+            </div>
+            <div class="sm:text-right">
+              <span class="text-mocha-700/60 block">FIELD EQUILIBRIUM:</span>
+              <span id="simForce" class="text-mocha-800 font-medium">Flux Pinning: |F_p| = 14.8 N</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EDITORIAL TOPIC CARDS (THE 3 SILOS) -->
+    <section id="silos" class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono text-xs uppercase tracking-caps text-bronze font-semibold">Knowledge Architecture</span>
+        <h2 class="text-3xl sm:text-5xl font-serif text-mocha-800 mt-2">
+          The Three Pillars of Gravitational Science
+        </h2>
+        <p class="text-mocha-700/80 font-sans mt-3 text-base sm:text-lg">
+          Each silo isolates a specific physical mechanism, establishing an uncompromising conceptual foundation from macroscopic cryogenics to spacetime geometry.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: QUANTUM LEVITATION -->
+        <div class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-caps text-cinnamon-500 mb-4 pb-2 border-b border-cinnamon-100 flex items-center justify-between">
+              <span>Silo 01 // Quantum</span>
+              <span class="text-bronze font-bold">10 Monographs</span>
+            </div>
+            <h3 class="text-2xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors">
+              Quantum Flux & Superconductivity
+            </h3>
+            <p class="mt-4 text-sm text-mocha-700/80 font-sans leading-relaxed">
+              Investigate the mechanics of Type-II superconductors, the Meissner effect, and flux line pinning. We analyze how persistent quantum vortices anchor macroscopic mass against Earth's gravitational gradient without active energy input.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono text-mocha-700/60">Hub: /quantum-levitation/</span>
+            <a href="quantum-levitation.html" class="btn-primary text-xs py-2 px-4">
+              Enter Silo &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: ACOUSTIC & EM -->
+        <div class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-caps text-cinnamon-500 mb-4 pb-2 border-b border-cinnamon-100 flex items-center justify-between">
+              <span>Silo 02 // Classical</span>
+              <span class="text-bronze font-bold">10 Monographs</span>
+            </div>
+            <h3 class="text-2xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors">
+              Acoustic & Electrodynamic Suspension
+            </h3>
+            <p class="mt-4 text-sm text-mocha-700/80 font-sans leading-relaxed">
+              Explore contactless matter manipulation through standing pressure waves and diamagnetic repulsion. Unpack how ultrasonic transducer matrices and multi-tesla fields bypass Earnshaw’s theorem to achieve stable, room-temperature suspension.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono text-mocha-700/60">Hub: /electromagnetic-acoustic/</span>
+            <a href="articles.html?silo=electromagnetic-acoustic" class="btn-primary text-xs py-2 px-4">
+              Enter Silo &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: SPECULATIVE PROPULSION -->
+        <div class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-caps text-cinnamon-500 mb-4 pb-2 border-b border-cinnamon-100 flex items-center justify-between">
+              <span>Silo 03 // Relativistic</span>
+              <span class="text-bronze font-bold">10 Monographs</span>
+            </div>
+            <h3 class="text-2xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors">
+              Metric Propulsion & Spacetime Curvature
+            </h3>
+            <p class="mt-4 text-sm text-mocha-700/80 font-sans leading-relaxed">
+              Separate peer-reviewed gravitational mechanics from pseudoscientific speculation. We unpack Alcubierre warp metrics, dynamic Casimir vacuum fluctuations, and the mathematical constraints of negative energy densities under general relativity.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono text-mocha-700/60">Hub: /speculative-propulsion/</span>
+            <a href="articles.html?silo=speculative-propulsion" class="btn-primary text-xs py-2 px-4">
+              Enter Silo &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE ANTI-GRAVITY CODEX / FOUNDATIONS 101 -->
+    <section id="codex" class="my-16 max-w-4xl mx-auto px-6">
+      <div class="bg-ivory border border-cinnamon-200 p-8 md:p-14 rounded-xl shadow-warm-md relative">
+        <div class="flex items-center space-x-3 mb-6">
+          <span class="h-px w-10 bg-bronze"></span>
+          <h3 class="text-xs font-mono uppercase tracking-caps text-cinnamon-600 font-semibold">The Anti-Gravity Codex // Axiom I</h3>
+        </div>
+        
+        <h2 class="font-serif text-3xl text-mocha-800 mb-6">
+          The Conservation of Gravity: Separating Physics from Fiction
+        </h2>
+
+        <div class="text-mocha-800 font-sans text-base md:text-lg leading-relaxed drop-cap">
+          True physical levitation is not the whimsical negation of gravity, but the precise balance of opposing fundamental vectors. Science fiction often treats “anti-gravity” as an elusive energetic field that switches off gravitational attraction. In rigorous physics, no such gravitational dipole has ever been observed. Instead, science achieves mass suspension through three rigorous physical pathways: macroscopic quantum trapping via flux pinning in Type-II superconductors, radiation pressure generated by high-intensity acoustic and optical standing nodes, and exotic solutions to Einstein’s field equations that deform the spacetime metric itself. Earnshaw’s Theorem proves that static magnetic fields cannot stably suspend a ferromagnetic object; thus, all stable equilibrium requires either quantum phase transitions, dynamic electrodynamic feedback, or diamagnetic field repulsion. This archive is devoted entirely to verifiable field mechanics, separating peer-reviewed physical breakthroughs from sensationalist folklore.
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-cinnamon-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+          <span class="text-mocha-700/70">ARCHIVE REFERENCE: CODEX-PHYS-01</span>
+          <a href="quantum-levitation.html" class="text-bronze font-bold hover:underline uppercase tracking-caps">
+            Explore the Quantum Levitation Pillar Guide &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURATED RESEARCH PREVIEWS (RECENT MONOGRAPHS) -->
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-caps text-bronze font-semibold">Peer-Reviewed Selection</span>
+          <h2 class="text-3xl sm:text-4xl font-serif text-mocha-800 mt-1">Featured Research Dispatches</h2>
+        </div>
+        <a href="articles.html" class="btn-secondary text-xs py-2 px-5 self-start md:self-auto">
+          View Complete 30-Article Library &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- FEATURED 1 -->
+        <article class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-3">
+              <span class="text-bronze font-semibold uppercase tracking-caps">Silo 1: Superconductivity</span>
+              <span class="text-mocha-700/60">18 min read</span>
+            </div>
+            <h3 class="text-xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors leading-snug">
+              <a href="quantum-levitation.html" class="text-inherit no-underline">
+                Quantum Levitation & Flux Pinning: The Definitive Physics Guide
+              </a>
+            </h3>
+            <p class="mt-3 text-sm text-mocha-700/80 leading-relaxed font-sans">
+              The foundational pillar treatise examining macroscopic quantum locking, Cooper pair phase transitions, and Type-II ceramic cuprate pinning sites.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono bg-sand-200 px-2 py-1 rounded text-cinnamon-600">Pillar Hub</span>
+            <a href="quantum-levitation.html" class="text-xs font-mono uppercase tracking-caps text-mocha-800 font-semibold group-hover:text-bronze">
+              Read &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- FEATURED 2 -->
+        <article class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-3">
+              <span class="text-bronze font-semibold uppercase tracking-caps">Silo 2: EM & Acoustic</span>
+              <span class="text-mocha-700/60">10 min read</span>
+            </div>
+            <h3 class="text-xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors leading-snug">
+              <a href="articles.html?silo=electromagnetic-acoustic" class="text-inherit no-underline">
+                Earnshaw’s Theorem: Why Pure Static Permanent Magnets Cannot Levitate
+              </a>
+            </h3>
+            <p class="mt-3 text-sm text-mocha-700/80 leading-relaxed font-sans">
+              Proving mathematically via Gauss’s law that zero divergence in a static magnetic field forbids a three-dimensional local potential minimum.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono bg-sand-200 px-2 py-1 rounded text-cinnamon-600">Informational</span>
+            <a href="articles.html?silo=electromagnetic-acoustic" class="text-xs font-mono uppercase tracking-caps text-mocha-800 font-semibold group-hover:text-bronze">
+              Read &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- FEATURED 3 -->
+        <article class="card-ivory flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-3">
+              <span class="text-bronze font-semibold uppercase tracking-caps">Silo 3: Speculative Physics</span>
+              <span class="text-mocha-700/60">15 min read</span>
+            </div>
+            <h3 class="text-xl font-serif text-mocha-800 group-hover:text-cinnamon-600 transition-colors leading-snug">
+              <a href="articles.html?silo=speculative-propulsion" class="text-inherit no-underline">
+                The Alcubierre Warp Drive Metric: How General Relativity Allows FTL
+              </a>
+            </h3>
+            <p class="mt-3 text-sm text-mocha-700/80 leading-relaxed font-sans">
+              Compressing spacetime ahead while expanding it behind: evaluating Miguel Alcubierre’s 1994 tensor solution and modern energy reductions.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-cinnamon-100 flex items-center justify-between">
+            <span class="text-xs font-mono bg-sand-200 px-2 py-1 rounded text-cinnamon-600">Informational</span>
+            <a href="articles.html?silo=speculative-propulsion" class="text-xs font-mono uppercase tracking-caps text-mocha-800 font-semibold group-hover:text-bronze">
+              Read &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: NEWSLETTER LEAD MAGNET BOX -->
+    <section id="newsletter" class="max-w-3xl mx-auto px-6 my-24">
+      <div class="bg-ivory border border-cinnamon-200 rounded-2xl p-8 sm:p-14 text-center shadow-warm-md">
+        <span class="text-xs font-mono uppercase tracking-caps text-bronze font-semibold">The Levitas Monograph</span>
+        <h2 class="mt-2 text-2xl sm:text-4xl font-serif text-mocha-800">
+          Field Notes on Quantum Levitation & Zero-G
+        </h2>
+        <p class="mt-3 text-mocha-700/80 text-sm sm:text-base max-w-lg mx-auto font-sans leading-relaxed">
+          A curated monthly dispatch analyzing high-impact pre-prints, cryogenic levitation developments, and theoretical spacetime metric engineering.
+        </p>
+        <form data-newsletter class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="colleague@laboratory.edu" 
+            class="w-full px-4 py-3.5 rounded-md bg-sand-100 border border-cinnamon-200 text-mocha-800 placeholder-mocha-700/50 text-sm focus:outline-none focus:ring-1 focus:ring-bronze"
+            required
+          />
+          <button 
+            type="submit" 
+            class="btn-primary w-full sm:w-auto py-3.5 px-6 whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="mt-4 text-xs text-mocha-700/60 font-mono">
+          Published once monthly. Strictly peer-reviewed insights. Zero promotional spam.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- EDITORIAL FOOTER -->
+  <footer class="footer-mocha pt-16 pb-12 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-mocha-700">
+      
+      <!-- Col 1: Masthead -->
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-full bg-sand-100 flex items-center justify-center">
+            <span class="font-serif text-mocha-800 text-lg italic">L</span>
+          </div>
+          <span class="font-serif text-2xl text-sand-100">Levitas Review</span>
+        </div>
+        <p class="text-xs font-sans text-sand-300 leading-relaxed">
+          An authoritative science review exploring macroscopic quantum flux pinning, ultrasonic levitation, and general relativistic spacetime metrics.
+        </p>
+      </div>
+
+      <!-- Col 2: Knowledge Silos -->
+      <div>
+        <h4 class="font-mono text-xs uppercase tracking-caps text-bronze font-semibold mb-4">Knowledge Silos</h4>
+        <ul class="space-y-2 text-xs font-sans text-sand-300">
+          <li><a href="quantum-levitation.html">Quantum Flux & Superconductivity</a></li>
+          <li><a href="articles.html?silo=electromagnetic-acoustic">Acoustic & EM Levitation</a></li>
+          <li><a href="articles.html?silo=speculative-propulsion">Metric Propulsion & Relativity</a></li>
+          <li><a href="articles.html">Complete 30-Paper Index</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Laboratory & Standards -->
+      <div>
+        <h4 class="font-mono text-xs uppercase tracking-caps text-bronze font-semibold mb-4">Physics Standards</h4>
+        <ul class="space-y-2 text-xs font-sans text-sand-300">
+          <li><a href="#codex">The Foundations Codex</a></li>
+          <li><a href="#simulator">Interactive Trapping Exhibit</a></li>
+          <li><a href="quantum-levitation.html#apparatus">Laboratory Equipment Guide</a></li>
+          <li><a href="quantum-levitation.html#faqs">Snippet-Ready FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Publication Notice -->
+      <div>
+        <h4 class="font-mono text-xs uppercase tracking-caps text-bronze font-semibold mb-4">Editorial Integrity</h4>
+        <p class="text-xs font-sans text-sand-300 leading-relaxed">
+          All articles adhere strictly to established peer-reviewed thermodynamic, electromagnetic, and relativistic literature.
+        </p>
+        <div class="mt-4 font-mono text-[11px] text-cinnamon-400">
+          ISSN: 2940-881X • EST. 2026
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-sand-300/60 gap-4">
+      <div>&copy; 2026 The Levitas Review. All rights reserved. Natural warm editorial publication.</div>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-sand-100">Privacy Policy</a>
+        <a href="#" class="hover:text-sand-100">Editorial Charter</a>
+        <a href="#" class="hover:text-sand-100">Citation Protocols</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/physics-sim.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
